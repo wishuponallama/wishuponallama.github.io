@@ -1,0 +1,88 @@
+- title: CRANalerts
+  description: Get email alerts when a CRAN package gets updated - written entirely in Shiny.
+  img: cranalerts.png
+  url: https://cranalerts.com/
+- title: Rental Cashflow Calculator
+  description: The quickest way to analyze your next investment rental property - written entirely in Shiny.
+  img: cashflowcalc.png
+  url: https://cashflowcalc.com/
+- title: timevis
+  description: "Create interactive timeline visualizations in R."
+  img: timevis-demo.png
+  url: https://daattali.com/shiny/timevis-demo/
+- title: Digital droplet PCR analysis
+  description: Analyze and visualize droplet digital PCR data.
+  img: ddpcr.png
+  url: https://daattali.com/shiny/ddpcr/
+- title: Mimicking a Google Form with a Shiny app
+  description: Demonstration of how to create forms and save/load submissions with shiny.
+  img: mimic.png
+  url: https://daattali.com/shiny/mimic-google-form/
+- title: Lights Out game
+  description: "Lights Out is a fun brain-teasing puzzle game. Using the {lightsout} package, you can play the game using R."
+  img: lightsout.png
+  url: https://daattali.com/shiny/lightsout/
+- title: Employee Attrition Risk
+  description: Dashboard to analyze the attrition risk of employees at a fictitious compnay.
+  img: attrition.png
+  url: https://daattali.com/shiny/employee_attrition_risk/
+- title: Cancer data
+  description: Interactively explore data about cancer incidences/deaths in the US.
+  img: cancer.png
+  url: https://daattali.com/shiny/cancer-data/
+- title: Impact Replays
+  description: "Relive the exciting moments of any CFL game: Shiny app that won third place nationally at a CFL (Canadian Football) hackathon."
+  img: cfl.png
+  url: https://daattali.com/shiny/cfl/
+- title: Persistent data storage with Shiny
+  description: Demonstration of how to store and retrieve data in Shiny apps.
+  img: persistent.png
+  url: https://daattali.com/shiny/persistent-data-storage/
+- title: useR! 2017 Attendance
+  description: Interactively explore the attendees' schedules from the useR! 2017 Conference.
+  img: user2017.png
+  url: https://daattali.com/shiny/user2017/
+- title: Analyzing R-Bloggers' posts using Twitter
+  description: Explore the success of all R-Bloggers' posts using Twitter.
+  img: rbloggers.png
+  url: https://daattali.com/shiny/rbloggers-twitter/
+- title: "shinyalert"
+  description: "Easily create pretty popup messages (modals) in Shiny"
+  img: shinyalert.png
+  url: https://daattali.com/shiny/shinyalert-demo/
+- title: "shinyscreenshot"
+  description: "Capture screenshots of entire pages or parts of pages in Shiny apps."
+  img: shinyscreenshot.png
+  url: https://daattali.com/shiny/shinyscreenshot-demo/
+- title: colourInput
+  description: "Adding colour inputs to Shiny apps."
+  img: colourinput.png
+  url: https://daattali.com/shiny/colourInput/
+- title: shinydisconnect
+  description: "Show nice messages to the user when a Shiny app disconnects or errors."
+  img: shinydisconnect.PNG
+  url: https://daattali.com/shiny/shinydisconnect-demo/
+- title: "shinycssloaders"
+  description: "Add loading animations to a Shiny output while it's recalculating."
+  img: shinycssloaders.png
+  url: https://daattali.com/shiny/shinycssloaders-demo/
+- title: "shinyjs"
+  description: "Demo of {shinyjs} common features: Easily improve the user experience of your Shiny apps in seconds."
+  img: shinyjs.png
+  url: https://daattali.com/shiny/shinyjs-demo/
+- title: "Visualizing your most productive time of day"
+  description: "Analyzing git activity to see our work, or coding, patterns."
+  img: visualize-git-commits.png
+  url: https://daattali.com/shiny/visualize-git-commits-time/
+- title: ggMarginal
+  description: "Add marginal plots to ggplot2."
+  img: ggmarginal.png
+  url: https://daattali.com/shiny/ggExtra-ggMarginal-demo/
+- title: Bingo card generator
+  description: The name says it all - a simple app that lets you generate bingo cards.
+  img: bingo.png
+  url: https://daattali.com/shiny/bingo/
+#- title: BC Liquor Store prices
+#  description: Simple demo app that lets you find what to get from the liquor store - used for teaching Shiny.
+#  img: bcl.png
+#  url: https://daattali.com/shiny/bcl/

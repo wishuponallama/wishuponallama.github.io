@@ -1,15 +1,3 @@
-# Official website of WishUponALlama
+Website for [AttaliTech Ltd](https://attalitech.com/) - R/Shiny Consultant
 
-## Local development
-
-Download all the dependencies in the Gemfile.
-
-`$ bundle install`
-
-Run the website locally.
-
-`$ bundle exec jekyll serve`
-
-## Updating the prod website
-
-Any commit pushed to branch `main` will cause a Github action to trigger: https://github.com/wishuponallama/wishuponallama.github.io/actions which will create a new build and deployment.
+The website is built using the [Beautiful-Jekyll](https://beautifuljekyll.com/) template by [Dean Attali](https://deanattali.com/)
