@@ -18,16 +18,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Wish Upon A Llama
+email: hello@wishuponallama.com
+# This description will appear in your document head meta (for Google search results)
+# and in your feed.xml site description.
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  WishUponALlama is a cozy, 2D pixel-art role-playing game for animal lovers.
+  The game focuses on empathizing and caring for cute pets like llamas, sheep,
+  capybaras, and bunnies. Players can discover and create their own animal
+  breeds, walk and play games with animals, build meaningful relationships
+  with townsfolk, decorate their ranch, and start a family!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://wishuponallama.com" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: wishuponallama
+instagram_username:  wishuponallama
 
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0
