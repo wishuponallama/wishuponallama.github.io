@@ -1,13 +1,13 @@
 .page-header {
   text-align: right;
   line-height: 64px;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .page-content {
   text-align: center;
   color: black;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .page-footer {
@@ -19,8 +19,20 @@
 
 .header {
   margin-top: 32px;
-  margin-bottom: 128px;
+  padding-bottom: 128px;
   overflow: hidden;
+}
+
+.background {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  height: 100vh;
 }
 
 .trailer-row {
@@ -36,7 +48,9 @@
 }
 
 .trailer-text {
-  padding: 8px;
+  border-radius: 16px;
+  background-color: rgba(224, 232, 239, 0.6);
+  padding: 16px;
 }
 
 #social-media-button-twitter {
@@ -55,4 +69,8 @@
 
 #social-media-button-instagram .anticon-instagram {
   font-size: 24px;
+}
+
+.description-container {
+  height: 800px;
 }
