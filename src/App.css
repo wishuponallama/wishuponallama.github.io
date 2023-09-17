@@ -12,8 +12,8 @@
 
 .page-footer {
   text-align: center;
-  color: #fff;
-  background-color: black;
+  color: black;
+  background-color: #4B9B22;
   height: 256px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .background {
-  background-image: url("background.jpg");
+  background-image: url("assets/header-background.gif");
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -36,26 +36,17 @@
 }
 
 .trailer-row {
-  margin-top: 64px;
-}
-
-.trailer-text-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.trailer-text {
-  border-radius: 16px;
-  background-color: rgba(224, 232, 239, 0.6);
-  padding: 16px;
+  margin-top: 32px;
 }
 
 #social-media-button-twitter {
   width: 50px;
   height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
 
 #social-media-button-twitter .anticon-twitter {
@@ -65,6 +56,11 @@
 #social-media-button-instagram {
   width: 50px;
   height: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
 
 #social-media-button-instagram .anticon-instagram {
@@ -72,5 +68,10 @@
 }
 
 .description-container {
-  height: 800px;
+  height: 900px;
+  background-color: rgb(255, 245, 229)
+}
+
+.steam-widget-container {
+  margin-top: 32px;
 }
