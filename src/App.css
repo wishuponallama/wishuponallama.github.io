@@ -13,7 +13,7 @@
 .page-footer {
   text-align: center;
   color: black;
-  background-color: #4B9B22;
+  background-color: rgb(224, 216, 244);
   height: 256px;
 }
 
@@ -67,11 +67,64 @@
   font-size: 24px;
 }
 
-.description-container {
-  height: 900px;
-  background-color: rgb(255, 245, 229)
+.screenshots-container {
+  height: 100%;
+  background-color: rgb(236, 244, 216);
+  padding-top: 110px;
+  padding-bottom: 120px;
+}
+
+
+.newsletter-container {
+  height: 300px;
+  background-color: rgb(216, 244, 238);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.newsletter-description {
+  margin-bottom: 20px;
 }
 
 .steam-widget-container {
   margin-top: 32px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  padding-top: 56.25%;
+}
+
+/* Style the iframe to fit in the container div with full height and width; this allows for responsiveness */
+.steam-widget {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-img {
+  height: auto;
+  max-width: 100%;
+  width: 900px;
+}
+
+.screenshots-description {
+  margin-bottom: 20px;
+}
+
+.trailer-modal .ant-modal-content {
+  background-color: black;
+  padding: 0;
 }
