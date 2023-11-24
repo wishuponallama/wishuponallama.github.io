@@ -1,0 +1,37 @@
+.presskit-container {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  padding-top: 5vh;
+  padding-bottom: 12vh;
+}
+
+.copy-basic-info-button {
+  background-color: transparent;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.basic-info-descriptions {
+  background-color: white;
+  padding: 20px 30px 30px 30px;
+  border-radius: 10px;
+}
+
+.presskit-container .ant-descriptions .ant-descriptions-header {
+  margin-bottom: 0;
+}
+
+.presskit-description {
+  background-color: white;
+  padding: 20px 30px 30px 30px;
+  border-radius: 10px;
+}
+
+.paragraph {
+  white-space: pre-wrap;
+}
+
+.presskit-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
