@@ -15,12 +15,32 @@ import InstagramPosts from './InstagramPosts';
 const { Header, Footer, Content } = Layout;
 const { Title, Text } = Typography;
 
+const carouselData = [
+  {
+    title: 'Did someone say animal genetics?',
+    description: 'Breed and raise adorable animals like llamas, bunnies, sheep, horses, and capybaras!'
+  },
+  {
+    title: 'Build meaningful relationships',
+    description: 'From the aspiring designer to the chill gamer, Llama Town boasts a diverse population for you to meet!'
+  },
+  {
+    title: 'Explore breathtaking locales',
+    description: 'Think vacation islands, lush forests, and picturesque beaches!'
+  },
+  {
+    title: 'Personalize your living space',
+    description: 'Decorate your dwelling and surrounding land to make your one-of-a-kind dream home!'
+  }
+];
+
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isTrailerModalOpen: false,
-      dummyKey: 0
+      dummyKey: 0,
+      carouselIdx: 0
     };
     this.ref = React.createRef();
   }
@@ -42,7 +62,12 @@ class Home extends Component {
     this.ref.current.scrollIntoView({ behavior: 'smooth' });
   }
 
+  onCarouselChange = (currIdx, nextIdx) => {
+    this.setState({ carouselIdx: nextIdx });
+  }
+
   render() {
+    const { title: carouselTitle, description: carouselDescription } = carouselData[this.state.carouselIdx];
     return (
       <div className="home" >
         <Layout>
@@ -63,19 +88,18 @@ class Home extends Component {
                     <div className='trailer-container'>
                       <Button type="primary" icon={<VideoCameraOutlined />} size='large' onClick={this.openTrailerModal}>Watch the trailer!</Button>
                       <Modal width={800} wrapClassName="trailer-modal" open={this.state.isTrailerModalOpen} footer={null} closeIcon={null} onCancel={this.closeTrailerModal}>
-                        <iframe src='https://www.youtube.com/embed/lIOdPxltO4s?autoplay=1&mute=1&start=5'
+                        <iframe className='trailer-iframe' src='https://www.youtube.com/embed/lIOdPxltO4s?autoplay=1&mute=1&start=5'
                           key={this.state.dummyKey}
                           width='100%'
                           height='512px'
-                          frameborder='0'
                           allow='autoplay; encrypted-media'
-                          allowfullscreen
+                          allowFullScreen
                           title='video'
                         />
                       </Modal>
                     </div>
                     <div className="steam-widget-container">
-                      <iframe className="steam-widget" src="https://store.steampowered.com/widget/2262630/?t=Welcome%20to%20Wish%20Upon%20A%20Llama%2C%20an%20immersive%20open-ended%20RPG%20where%20you%20embark%20on%20a%20delightful%20journey%20of%20raising%20and%20breeding%20adorable%20animals%20such%20as%20llamas%2C%20bunnies%2C%20capybaras%2C%20and%20sheep%20while%20building%20meaningful%20relationships%20with%20the%20townsfolk!%20" frameborder="0"></iframe>
+                      <iframe className="steam-widget" src="https://store.steampowered.com/widget/2262630/?t=Welcome%20to%20Wish%20Upon%20A%20Llama%2C%20an%20immersive%20open-ended%20RPG%20where%20you%20embark%20on%20a%20delightful%20journey%20of%20raising%20and%20breeding%20adorable%20animals%20such%20as%20llamas%2C%20bunnies%2C%20capybaras%2C%20and%20sheep%20while%20building%20meaningful%20relationships%20with%20the%20townsfolk!%20"></iframe>
                     </div>
                   </Col>
                   <Col span={3} />
@@ -110,11 +134,10 @@ class Home extends Component {
               <Row className='screenshots-description' justify='center'>
                 <Col span={12}>
                   <Title level={2} code={true}>A Cozy World for Pet Lovers!</Title>
-                  <Text>Embark on a delightful journey of breeding and raising adorable animals like llamas, bunnies, and capybaras while building meaningful relationships with the residents of Llama Town</Text>
                 </Col>
               </Row>
               <div>
-                <Carousel>
+                <Carousel beforeChange={this.onCarouselChange}>
                   <div>
                     <div className="carousel-card">
                       <img
@@ -139,7 +162,19 @@ class Home extends Component {
                       />
                     </div>
                   </div>
+                  <div>
+                    <div className="carousel-card">
+                      <img
+                        className="carousel-img"
+                        src={ImgNightWalk}
+                      />
+                    </div>
+                  </div>
                 </Carousel>
+                <div className='carousel-description'>
+                  <Title level={3}>{carouselTitle}</Title>
+                  <Text>{carouselDescription}</Text>
+                </div>
               </div>
             </div>
             <div className='instagram-container'>
