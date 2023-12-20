@@ -4,12 +4,6 @@
   background-color: transparent;
 }
 
-.page-footer {
-  text-align: center;
-  color: black;
-  background-color: rgb(224, 216, 244);
-}
-
 .header {
   margin-top: 64px;
   padding-bottom: 128px;
@@ -36,43 +30,17 @@
   border: none;
 }
 
-#social-media-button-twitter {
-  width: 50px;
-  height: 50px;
-  border: 2px solid rgba(0, 0, 0, 0.6);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
-#social-media-button-twitter .anticon-twitter {
-  font-size: 24px;
-}
-
-#social-media-button-instagram {
-  width: 50px;
-  height: 50px;
-  border: 2px solid rgba(0, 0, 0, 0.6);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-}
-
-#social-media-button-instagram .anticon-instagram {
-  font-size: 24px;
-}
-
 .screenshots-container {
   height: 100%;
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-  padding-top: 110px;
-  padding-bottom: 120px;
+  padding-top: 118px;
+  padding-bottom: 128px;
 }
 
 .newsletter-container {
-  height: 300px;
+  /* Since the h2 adds on 10px of blank space */
+  padding-top: 118px;
+  padding-bottom: 128px;
   /* fallback for old browsers */
   background: #4AC29A;
   /* Chrome 10-25, Safari 5.1-6 */
@@ -87,6 +55,10 @@
 
 .newsletter-description {
   margin-bottom: 20px;
+}
+
+.enter-email {
+  width: 30%;
 }
 
 .steam-widget-container {
@@ -119,7 +91,8 @@
 .carousel-img {
   height: auto;
   max-width: 100%;
-  width: 900px;
+  width: 800px;
+  border-radius: 1em;
 }
 
 .screenshots-description {
@@ -133,8 +106,8 @@
 
 .instagram-container {
   background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
-  padding-top: 110px;
-  padding-bottom: 120px;
+  padding-top: 118px;
+  padding-bottom: 20vh;
 }
 
 .scroll-down-container {
@@ -145,13 +118,7 @@
 
 .scroll-down-icon-container {
   font-size: 32px;
-  color: black;
-}
-
-.scroll-down-text {
-  margin-top: 10px;
-  font-size: 20px;
-  font-weight: 500;
+  color: rgb(0, 0, 0, 0.5)
 }
 
 @keyframes move-up-down {
@@ -172,30 +139,4 @@
 .scroll-down-hover:hover {
   filter: brightness(95%);
   cursor: pointer;
-}
-
-.footer-logo-container {
-  position: relative;
-}
-
-.footer-logo {
-  left: 50%;
-  position: absolute;
-  top: -74px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  background-image: url("assets/twitter-pfp.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.footer-content {
-  padding-top: 32px;
-  padding-bottom: 16px;
 }

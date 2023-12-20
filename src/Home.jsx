@@ -1,53 +1,43 @@
 import React, { Component } from 'react'
-import { Layout, Col, Row, Input, Button, Space, Typography, Carousel, Modal } from 'antd';
-import { TwitterOutlined, InstagramOutlined, VideoCameraOutlined, DownCircleOutlined } from '@ant-design/icons';
+import { Layout, Col, Row, Input, Button, Space, Typography, Carousel, Modal, message } from 'antd';
+import { VideoCameraOutlined, DoubleRightOutlined } from '@ant-design/icons';
 
-import { withRouter } from './withRouter'
+import InstagramPosts from './InstagramPosts';
+import Header from './Header';
+import Footer from './Footer';
+import { carouselData } from './homeData';
+import Fader from './Fader';
 
 import './Home.css';
 
 import ImgFamilyTree from './assets/family-tree.png';
 import ImgNightWalk from './assets/night-walk.png';
 import ImgPlayingTennis from './assets/playing-tennis.png'
+import ImgDecorateYard from './assets/decorate-yard.png'
 
-import InstagramPosts from './InstagramPosts';
-import PageHeader from './PageHeader';
-
-const { Footer, Content } = Layout;
+const { Content } = Layout;
 const { Title, Text } = Typography;
-
-const carouselData = [
-  {
-    title: 'Did someone say animal genetics?',
-    description: 'Breed and raise adorable animals like llamas, bunnies, sheep, horses, and capybaras!'
-  },
-  {
-    title: 'Build meaningful relationships',
-    description: 'From the aspiring designer to the chill gamer, Llama Town boasts a diverse population for you to meet!'
-  },
-  {
-    title: 'Explore breathtaking locales',
-    description: 'Think vacation islands, lush forests, and picturesque beaches!'
-  },
-  {
-    title: 'Personalize your living space',
-    description: 'Decorate your dwelling and surrounding land to make your one-of-a-kind dream home!'
-  }
-];
+const { Search } = Input;
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isTrailerModalOpen: false,
+      openedTrailer: false,
       dummyKey: 0,
+      prevCarouselIdx: 0,
       carouselIdx: 0
     };
     this.ref = React.createRef();
   }
 
   openTrailerModal = () => {
-    this.setState({ isTrailerModalOpen: true });
+    // Don't show the message unless the user refreshes
+    if (!this.state.openedTrailer) {
+      message.info("Don't forget to unmute the video to hear our music!");
+    }
+    this.setState({ isTrailerModalOpen: true, openedTrailer: true });
   }
 
   closeTrailerModal = () => {
@@ -55,26 +45,27 @@ class Home extends Component {
     this.setState({ isTrailerModalOpen: false, dummyKey: this.state.dummyKey + 1 });
   }
 
-  toPage = (pageUrl) => {
-    this.props.navigate("/" + pageUrl);
-  }
-
   scrollDown = () => {
     this.ref.current.scrollIntoView({ behavior: 'smooth' });
   }
 
   onCarouselChange = (currIdx, nextIdx) => {
-    this.setState({ carouselIdx: nextIdx });
+    this.setState({ prevCarouselIdx: currIdx, carouselIdx: nextIdx });
   }
 
+  onSubmitEmail = (email) => {
+    message.success('Successfully subscribed. Thank you for your interest!');
+  };
+
   render() {
+    const { title: prevCarouselTitle, description: prevCarouselDescription } = carouselData[this.state.prevCarouselIdx];
     const { title: carouselTitle, description: carouselDescription } = carouselData[this.state.carouselIdx];
     return (
       <div className="home" >
         <Layout>
           <Content className='page-content'>
             <div className='background'>
-              <PageHeader isHomePage={true} />
+              <Header isHomePage={true} />
               <div className='header'>
                 <Row className='title-row' justify='center'>
                   <Col span={24}>
@@ -108,10 +99,7 @@ class Home extends Component {
                   <Col span={24}>
                     <div className='scroll-down-hover' onClick={this.scrollDown}>
                       <div className='scroll-down-icon-container'>
-                        <DownCircleOutlined className='scroll-down-icon' />
-                      </div>
-                      <div>
-                        <Text className='scroll-down-text'>Scroll</Text>
+                        <DoubleRightOutlined className='scroll-down-icon' rotate={90} />
                       </div>
                     </div>
                   </Col>
@@ -123,10 +111,13 @@ class Home extends Component {
                 <Title level={2} code={true}>Subscribe to our Newsletter!</Title>
                 <Text>Stay up to date with the latest news about Wish Upon A Llama</Text>
               </div>
-              <Space.Compact>
-                <Input placeholder='Enter your email' size='large' />
-                <Button type="primary" size='large'>Submit</Button>
-              </Space.Compact>
+              <Search
+                className="enter-email"
+                placeholder="Enter your email"
+                enterButton="Submit"
+                size="large"
+                onSearch={this.onSubmitEmail}
+              />
             </div>
             <div className='screenshots-container'>
               <Row className='screenshots-description' justify='center'>
@@ -164,7 +155,7 @@ class Home extends Component {
                     <div className="carousel-card">
                       <img
                         className="carousel-img"
-                        src={ImgNightWalk}
+                        src={ImgDecorateYard}
                       />
                     </div>
                   </div>
@@ -184,34 +175,12 @@ class Home extends Component {
               <InstagramPosts />
             </div>
           </Content>
-          <Footer className='page-footer'>
-            <div className='footer-logo-container'>
-              <div className='footer-logo' />
-            </div>
-            <div className='footer-content'>
-              <Space direction='vertical' size='large'>
-                <div>
-                  <Title level={4}>
-                    STAY CONNECTED
-                  </Title>
-                </div>
-                <div className='social-media-container'>
-                  <Space size='large'>
-                    <Button id='social-media-button-twitter' type="primary" shape='circle' size='large' icon={<TwitterOutlined />} style={{ color: 'black', backgroundColor: 'white' }} href="https://twitter.com/WishUponALlama" target="_blank" />
-                    <Button id='social-media-button-instagram' type="primary" shape='circle' size='large' icon={<InstagramOutlined />} style={{ color: 'black', backgroundColor: 'white' }} href="https://www.instagram.com/wishuponallama" target="blank" />
-                  </Space>
-                </div>
-                <div>
-                  © 2023 Millionhare Studios
-                </div>
-              </Space>
-            </div>
-          </Footer>
+          <Footer />
         </Layout >
       </div >
     );
   }
 }
 
-export default withRouter(Home);
+export default Home;
 

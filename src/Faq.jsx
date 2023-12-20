@@ -1,67 +1,22 @@
 import React, { Component } from 'react'
-import { Layout, Col, Row, Input, Button, Space, Typography, Collapse } from 'antd';
-import { TwitterOutlined, InstagramOutlined } from '@ant-design/icons';
+import { Layout, Col, Row, Space, Typography, Collapse } from 'antd';
+import { withRouter } from './withRouter'
 
-import { withRouter } from './withRouter';
-import PageHeader from './PageHeader';
+import Header from './Header';
+import Footer from './Footer';
+import { faqData } from './faqData';
 
 import './Faq.css'
 
-const { Header, Footer, Content } = Layout;
-const { Title, Text, Paragraph } = Typography;
-
-const faqData = [
-  {
-    question: 'What is Wish Upon A Llama?',
-    answer: 'text',
-  },
-  {
-    question: 'When will the game come out?',
-    answer: 'text',
-  },
-  {
-    question: 'What platforms will be supported?',
-  },
-  {
-    question: 'How can I stay up to date with updates and news about the game?',
-    answer: 'text',
-  },
-  {
-    question: 'Will the game be multiplayer?',
-    answer: 'text',
-  },
-  {
-    question: 'Is the game family friendly?',
-    answer: 'text',
-  },
-  {
-    question: 'Can you add this animal ____ to the game?',
-    answer: 'yes',
-  },
-  {
-    question: 'Can I choose my pronouns in the game?',
-    answer: 'text',
-  },
-  {
-    question: 'Will there be romance in the game?',
-    answer: 'text',
-  },
-  {
-    question: 'I have more questions. Where can I ask them?',
-    answer: 'text',
-  },
-];
+const { Content } = Layout;
+const { Title } = Typography;
 
 class Faq extends Component {
-  toPage = (pageUrl) => {
-    this.props.navigate("/" + pageUrl);
-  }
-
   render() {
     return (
       <div className="faq" >
         <Layout>
-          <PageHeader isHomePage={false} />
+          <Header isHomePage={false} />
           <Content>
             <div className="faq-container">
               <Row justify='center'>
@@ -72,8 +27,9 @@ class Faq extends Component {
                     size='middle'
                   >
                     <Title code={true} level={2}>Frequently Asked Questions</Title>
-                    {faqData.map(data => {
+                    {faqData.map((data, idx) => {
                       return <Collapse
+                        key={idx}
                         className='faq-item'
                         size="large"
                         bordered={false}
@@ -90,26 +46,7 @@ class Faq extends Component {
               </Row>
             </div>
           </Content>
-          <Footer className='page-footer'>
-            <div className='footer-content'>
-              <Space direction='vertical' size='large'>
-                <div>
-                  <Title level={4}>
-                    STAY CONNECTED
-                  </Title>
-                </div>
-                <div className='social-media-container'>
-                  <Space size='large'>
-                    <Button id='social-media-button-twitter' type="primary" shape='circle' size='large' icon={<TwitterOutlined />} style={{ color: 'black', backgroundColor: 'white' }} href="https://twitter.com/WishUponALlama" target="_blank" />
-                    <Button id='social-media-button-instagram' type="primary" shape='circle' size='large' icon={<InstagramOutlined />} style={{ color: 'black', backgroundColor: 'white' }} href="https://www.instagram.com/wishuponallama" target="blank" />
-                  </Space>
-                </div>
-                <div>
-                  © 2023 Millionhare Studios
-                </div>
-              </Space>
-            </div>
-          </Footer>
+          <Footer />
         </Layout>
       </div >
     );

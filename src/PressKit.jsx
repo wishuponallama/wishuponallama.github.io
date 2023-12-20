@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import { Layout, Col, Row, Descriptions, Tooltip, Button, Space, Typography, Carousel, Modal, Tag, message, Flex } from 'antd';
-import { TwitterOutlined, InstagramOutlined, CopyOutlined, FolderOutlined } from '@ant-design/icons';
+import { Layout, Col, Row, Descriptions, Tooltip, Button, Space, Typography, Tag, message } from 'antd';
+import { CopyOutlined, FolderOutlined } from '@ant-design/icons';
 
-import { withRouter } from './withRouter';
-import PageHeader from './PageHeader';
+import Header from './Header';
+import Footer from './Footer';
 
 import './PressKit.css'
 
-const { Header, Footer, Content } = Layout;
-const { Title, Text, Paragraph } = Typography;
+const { Content } = Layout;
+const { Title, Paragraph } = Typography;
 
 const basicInfoRaw = [
   {
@@ -40,6 +40,10 @@ const basicInfoRaw = [
   },
 ];
 
+const basicInfoText = basicInfoRaw.map(elem =>
+  elem.label + ": " + elem.children
+).join('\n');
+
 const basicInfo = basicInfoRaw.map((elem, idx) => {
   let children = elem.children;
   if ('childrenFunc' in elem) {
@@ -59,7 +63,7 @@ const copyBasicInfoIcon = (
       shape="circle"
       icon={<CopyOutlined />}
       onClick={async () => {
-        await navigator.clipboard.writeText("foo");
+        await navigator.clipboard.writeText(basicInfoText);
         message.success('Successfully copied to clipboard');
       }}
     />
@@ -67,15 +71,11 @@ const copyBasicInfoIcon = (
 );
 
 class PressKit extends Component {
-  toPage = (pageUrl) => {
-    this.props.navigate("/" + pageUrl);
-  }
-
   render() {
     return (
       <div className='presskit' >
         <Layout>
-          <PageHeader isHomePage={false} />
+          <Header isHomePage={false} />
           <Content>
             <div className='presskit-container'>
               <Row justify='center'>
@@ -86,7 +86,7 @@ class PressKit extends Component {
                   >
                     <div className='presskit-title-container'>
                       <Title code={true} level={2}>Press Kit</Title>
-                      <Button type="primary" icon={<FolderOutlined />} size='large'>
+                      <Button type="primary" icon={<FolderOutlined />} size='large' href='https://drive.google.com/drive/folders/1OrXUya6_PLtI4cwet2MrMqPjVKBjars_?usp=sharing' target='_blank'>
                         View all Assets
                       </Button>
                     </div>
@@ -127,30 +127,11 @@ class PressKit extends Component {
               </Row>
             </div>
           </Content>
-          <Footer className='page-footer'>
-            <div className='footer-content'>
-              <Space direction='vertical' size='large'>
-                <div>
-                  <Title level={4}>
-                    STAY CONNECTED
-                  </Title>
-                </div>
-                <div className='social-media-container'>
-                  <Space size='large'>
-                    <Button id='social-media-button-twitter' type="primary" shape='circle' size='large' icon={<TwitterOutlined />} style={{ color: 'black', backgroundColor: 'white' }} href="https://twitter.com/WishUponALlama" target="_blank" />
-                    <Button id='social-media-button-instagram' type="primary" shape='circle' size='large' icon={<InstagramOutlined />} style={{ color: 'black', backgroundColor: 'white' }} href="https://www.instagram.com/wishuponallama" target="blank" />
-                  </Space>
-                </div>
-                <div>
-                  © 2023 Millionhare Studios
-                </div>
-              </Space>
-            </div>
-          </Footer>
+          <Footer />
         </Layout>
       </div >
     );
   }
 }
 
-export default withRouter(PressKit);
+export default PressKit;

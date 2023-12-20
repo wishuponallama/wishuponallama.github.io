@@ -1,17 +1,7 @@
 import React, { Component } from 'react'
-import { Layout, Col, Row, Input, Button, Space, Typography, Carousel, Modal } from 'antd';
-import { TwitterOutlined, InstagramOutlined, VideoCameraOutlined } from '@ant-design/icons';
-
-import { withRouter } from './withRouter'
+import { Row, Col } from 'antd';
 
 import './InstagramPosts.css'
-
-import ImgFamilyTree from './assets/family-tree.png';
-import ImgNightWalk from './assets/night-walk.png';
-import ImgPlayingTennis from './assets/playing-tennis.png'
-
-const { Header, Footer, Content } = Layout;
-const { Title, Text } = Typography;
 
 const post1 = (
   <blockquote
@@ -43,6 +33,7 @@ const post1 = (
           width: "100%"
         }}
         target="_blank"
+        rel="noreferrer"
       >
         {" "}
         <div
@@ -281,6 +272,7 @@ const post1 = (
             textDecoration: "none"
           }}
           target="_blank"
+          rel="noreferrer"
         >
           A post shared by Wish Upon a Llama (@wishuponallama)
         </a>
@@ -319,6 +311,7 @@ const post2 = (
           width: "100%"
         }}
         target="_blank"
+        rel="noreferrer"
       >
         {" "}
         <div
@@ -557,6 +550,7 @@ const post2 = (
             textDecoration: "none"
           }}
           target="_blank"
+          rel="noreferrer"
         >
           A post shared by Wish Upon a Llama (@wishuponallama)
         </a>
@@ -595,6 +589,7 @@ const post3 = (
           width: "100%"
         }}
         target="_blank"
+        rel="noreferrer"
       >
         {" "}
         <div
@@ -833,6 +828,7 @@ const post3 = (
             textDecoration: "none"
           }}
           target="_blank"
+          rel="noreferrer"
         >
           A post shared by Wish Upon a Llama (@wishuponallama)
         </a>
@@ -865,5 +861,5 @@ class InstagramPosts extends Component {
   }
 }
 
-export default withRouter(InstagramPosts);
+export default InstagramPosts;
 
