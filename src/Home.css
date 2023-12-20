@@ -1,9 +1,3 @@
-.page-header {
-  text-align: right;
-  line-height: 64px;
-  background-color: transparent;
-}
-
 .page-content {
   text-align: center;
   color: black;
@@ -14,7 +8,6 @@
   text-align: center;
   color: black;
   background-color: rgb(224, 216, 244);
-  height: 256px;
 }
 
 .header {
@@ -77,7 +70,6 @@
   padding-top: 110px;
   padding-bottom: 120px;
 }
-
 
 .newsletter-container {
   height: 300px;
@@ -180,4 +172,30 @@
 .scroll-down-hover:hover {
   filter: brightness(95%);
   cursor: pointer;
+}
+
+.footer-logo-container {
+  position: relative;
+}
+
+.footer-logo {
+  left: 50%;
+  position: absolute;
+  top: -74px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-image: url("assets/twitter-pfp.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.footer-content {
+  padding-top: 32px;
+  padding-bottom: 16px;
 }

@@ -24,7 +24,7 @@ const post1 = (
       borderRadius: 3,
       boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
       margin: 1,
-      maxWidth: 540,
+      maxWidth: 340,
       minWidth: 326,
       padding: 0,
       width: "calc(100% - 2px)"
@@ -300,7 +300,7 @@ const post2 = (
       borderRadius: 3,
       boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
       margin: 1,
-      maxWidth: 540,
+      maxWidth: 340,
       minWidth: 326,
       padding: 0,
       width: "calc(100% - 2px)"
@@ -576,7 +576,7 @@ const post3 = (
       borderRadius: 3,
       boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
       margin: 1,
-      maxWidth: 540,
+      maxWidth: 340,
       minWidth: 326,
       padding: 0,
       width: "calc(100% - 2px)"

@@ -3,6 +3,7 @@ import { Layout, Col, Row, Input, Button, Space, Typography, Collapse } from 'an
 import { TwitterOutlined, InstagramOutlined } from '@ant-design/icons';
 
 import { withRouter } from './withRouter';
+import PageHeader from './PageHeader';
 
 import './Faq.css'
 
@@ -60,11 +61,7 @@ class Faq extends Component {
     return (
       <div className="faq" >
         <Layout>
-          <Header className='nonhome-page-header'>
-            <Button className='home-button' type='text' size='large' onClick={() => this.toPage('')}>HOME</Button>
-            <Button className='faq-button' type='text' size='large' onClick={() => this.toPage('faq')}>FAQ</Button>
-            <Button className='press-kit-button' type='text' size='large' onClick={() => this.toPage('presskit')}>PRESS KIT</Button>
-          </Header>
+          <PageHeader isHomePage={false} />
           <Content>
             <div className="faq-container">
               <Row justify='center'>

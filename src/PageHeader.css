@@ -1,0 +1,11 @@
+.page-header {
+  text-align: right;
+  line-height: 64px;
+  background-color: transparent;
+}
+
+.nonhome-page-header {
+  background-color: rgb(224, 216, 244);
+  text-align: right;
+  line-height: 64x;
+}

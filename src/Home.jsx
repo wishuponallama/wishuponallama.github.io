@@ -11,8 +11,9 @@ import ImgNightWalk from './assets/night-walk.png';
 import ImgPlayingTennis from './assets/playing-tennis.png'
 
 import InstagramPosts from './InstagramPosts';
+import PageHeader from './PageHeader';
 
-const { Header, Footer, Content } = Layout;
+const { Footer, Content } = Layout;
 const { Title, Text } = Typography;
 
 const carouselData = [
@@ -73,10 +74,7 @@ class Home extends Component {
         <Layout>
           <Content className='page-content'>
             <div className='background'>
-              <Header className='page-header'>
-                <Button className='faq-button' type='text' size='large' onClick={() => this.toPage("faq")}>FAQ</Button>
-                <Button className='press-kit-button' type='text' size='large' onClick={() => this.toPage("presskit")}>PRESS KIT</Button>
-              </Header>
+              <PageHeader isHomePage={true} />
               <div className='header'>
                 <Row className='title-row' justify='center'>
                   <Col span={24}>
@@ -187,6 +185,9 @@ class Home extends Component {
             </div>
           </Content>
           <Footer className='page-footer'>
+            <div className='footer-logo-container'>
+              <div className='footer-logo' />
+            </div>
             <div className='footer-content'>
               <Space direction='vertical' size='large'>
                 <div>

@@ -3,6 +3,7 @@ import { Layout, Col, Row, Descriptions, Tooltip, Button, Space, Typography, Car
 import { TwitterOutlined, InstagramOutlined, CopyOutlined, FolderOutlined } from '@ant-design/icons';
 
 import { withRouter } from './withRouter';
+import PageHeader from './PageHeader';
 
 import './PressKit.css'
 
@@ -74,11 +75,7 @@ class PressKit extends Component {
     return (
       <div className='presskit' >
         <Layout>
-          <Header className='nonhome-page-header'>
-            <Button className='home-button' type='text' size='large' onClick={() => this.toPage('')}>HOME</Button>
-            <Button className='faq-button' type='text' size='large' onClick={() => this.toPage('faq')}>FAQ</Button>
-            <Button className='press-kit-button' type='text' size='large' onClick={() => this.toPage('presskit')}>PRESS KIT</Button>
-          </Header>
+          <PageHeader isHomePage={false} />
           <Content>
             <div className='presskit-container'>
               <Row justify='center'>
