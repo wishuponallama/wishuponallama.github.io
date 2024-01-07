@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Col, Row, Input, Button, Space, Typography, Carousel, Modal, message } from 'antd';
+import { Layout, Col, Row, Input, Button, Typography, Carousel, Modal, message } from 'antd';
 import { VideoCameraOutlined, DoubleRightOutlined } from '@ant-design/icons';
 
 import InstagramPosts from './InstagramPosts';
@@ -14,6 +14,11 @@ import ImgFamilyTree from './assets/family-tree.png';
 import ImgNightWalk from './assets/night-walk.png';
 import ImgPlayingTennis from './assets/playing-tennis.png'
 import ImgDecorateYard from './assets/decorate-yard.png'
+
+import ImgWishText from './assets/text/wish.png';
+import ImgUponText from './assets/text/upon.png';
+import ImgAText from './assets/text/a.png';
+import ImgLlamaText from './assets/text/llama.png';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
@@ -53,7 +58,7 @@ class Home extends Component {
     this.setState({ prevCarouselIdx: currIdx, carouselIdx: nextIdx });
   }
 
-  onSubmitEmail = (email) => {
+  onSubmitEmail = _ => {
     message.success('Successfully subscribed. Thank you for your interest!');
   };
 
@@ -67,16 +72,23 @@ class Home extends Component {
             <div className='background'>
               <Header isHomePage={true} />
               <div className='header'>
-                <Row className='title-row' justify='center'>
-                  <Col span={24}>
-                    <Title code={true}>Wish Upon A Llama</Title>
+                <Row justify='center'>
+                  <Col span={12}>
+                    <div className='home-title'>
+                      <img src={ImgWishText} />
+                      <img src={ImgUponText} />
+                      <img src={ImgAText} />
+                      <img src={ImgLlamaText} />
+                    </div>
                   </Col>
                 </Row>
                 <Row className='trailer-row' justify='end'>
                   <Col span={10}>
                     <div className='trailer-container'>
-                      <Button type="primary" icon={<VideoCameraOutlined />} size='large' onClick={this.openTrailerModal}>Watch the trailer!</Button>
-                      <Modal width={800} wrapClassName="trailer-modal" open={this.state.isTrailerModalOpen} footer={null} closeIcon={null} onCancel={this.closeTrailerModal}>
+                      <Button type="primary" icon={<VideoCameraOutlined />} size='large' onClick={this.openTrailerModal}>WATCH TRAILER</Button>
+                      {/* TODO: make this responsive!! */}
+                      {/* Setting width = 911, height = 512px is the perfect dimensions such that there's no black space around the youtube video */}
+                      <Modal width={911} wrapClassName="trailer-modal" centered={true} open={this.state.isTrailerModalOpen} footer={null} closeIcon={null} onCancel={this.closeTrailerModal}>
                         <iframe className='trailer-iframe' src='https://www.youtube.com/embed/lIOdPxltO4s?autoplay=1&mute=1&start=5'
                           key={this.state.dummyKey}
                           width='100%'

@@ -4,8 +4,45 @@
   background-color: transparent;
 }
 
+.page-header .ant-dropdown-trigger {
+  font-size: 24px;
+}
+
+.page-header span {
+  color: white;
+}
+
 .nonhome-page-header {
   background-color: rgb(224, 216, 244);
   text-align: right;
   line-height: 64x;
+}
+
+/* For small screens, show navigation bar as three dots */
+@media screen and (max-width: 479px) {
+  .page-header {
+    padding: 0 24px;
+  }
+
+  .nonhome-page-header {
+    padding: 0 24px;
+  }
+
+  .page-header>button {
+    display: none;
+  }
+
+  .nonhome-page-header>button {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .page-header .ant-dropdown-trigger {
+    display: none;
+  }
+
+  .nonhome-page-header .ant-dropdown-trigger {
+    display: none;
+  }
 }

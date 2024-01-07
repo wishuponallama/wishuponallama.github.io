@@ -1,3 +1,22 @@
+/*
+
+Use breakpoints for the most commonly used device resolutions used across mobile, desktop, and tablet. These would be:
+
+1920×1080 (8.89%) - background image
+1366×768 (8.44%)
+360×640 (7.28%) - background image
+414×896 (4.58%)
+1536×864 (3.88%) - background image
+375×667 (3.75%) - background image
+
+min-width: 320px (smaller phones)
+min-width: 480px (most phones)
+min-width: 768px (most tablets)
+min-width: 992px (smaller desktops)
+min-width: 1200px (larger desktops)
+
+*/
+
 .page-content {
   text-align: center;
   color: black;
@@ -5,15 +24,12 @@
 }
 
 .header {
-  margin-top: 64px;
-  padding-bottom: 128px;
+  margin-top: 7vh;
   overflow: hidden;
 }
 
 .background {
-  background-image: url("assets/header-background.gif");
   background-repeat: no-repeat;
-  background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -22,12 +38,50 @@
   height: 100vh;
 }
 
+@media screen and (min-width: 320px) {
+  .background {
+    background-image: url("assets/header-background-479-691.gif");
+    background-position-x: center;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .background {
+    background-image: url("assets/header-background-766-864.gif");
+    background-position-x: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .background {
+    background-image: url("assets/header-background-990-864.gif");
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .background {
+    background-image: url("assets/header-background-1199-864.gif");
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .background {
+    background-image: url("assets/header-background-1920-1080.gif");
+  }
+}
+
 .trailer-row {
-  margin-top: 128px;
+  margin-top: 16vh;
 }
 
 .trailer-iframe {
   border: none;
+}
+
+.home-title>img {
+  width: auto;
+  height: 7vh;
+  margin-right: 24px;
 }
 
 .screenshots-container {
@@ -100,8 +154,10 @@
 }
 
 .trailer-modal .ant-modal-content {
-  background-color: black;
+  background-color: rgb(0, 0, 0, 0);
+  border-radius: 0;
   padding: 0;
+  box-shadow: none;
 }
 
 .instagram-container {
