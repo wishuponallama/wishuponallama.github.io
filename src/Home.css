@@ -72,6 +72,7 @@ min-width: 1200px (larger desktops)
 
 .trailer-row {
   margin-top: 16vh;
+  justify-content: flex-end;
 }
 
 .trailer-iframe {
@@ -80,8 +81,42 @@ min-width: 1200px (larger desktops)
 
 .home-title>img {
   width: auto;
-  height: 7vh;
-  margin-right: 24px;
+}
+
+@media screen and (min-width: 320px) {
+  .home-title>img {
+    height: 11vw;
+    margin-right: 24px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .home-title>img {
+    height: 11vw;
+    margin-right: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-title>img {
+    height: 9vw;
+    margin-right: 24px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .home-title>img {
+    height: 8vw;
+    margin-right: 3vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-title>img {
+    height: 7vw;
+    margin-right: 3vw;
+    max-height: 100px;
+  }
 }
 
 .screenshots-container {
@@ -122,6 +157,41 @@ min-width: 1200px (larger desktops)
   width: 100%;
   /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
   padding-top: 56.25%;
+}
+
+
+/* Make watch trailer and steam widget section responsive */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .trailer-row {
+    margin-top: 24vh;
+    justify-content: center;
+  }
+
+  .watch-trailer-button-modal {
+    display: none;
+  }
+
+  .watch-trailer-button-container {
+    margin-bottom: 24px;
+  }
+
+  .steam-widget-container {
+    display: none;
+  }
+
+  .trailer-row-padding {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wishlist-button-container {
+    display: none;
+  }
+
+  .watch-trailer-button-nonmodal {
+    display: none;
+  }
 }
 
 /* Style the iframe to fit in the container div with full height and width; this allows for responsiveness */

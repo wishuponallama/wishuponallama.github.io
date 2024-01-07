@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Col, Row, Input, Button, Typography, Carousel, Modal, message } from 'antd';
-import { VideoCameraOutlined, DoubleRightOutlined } from '@ant-design/icons';
+import { VideoCameraOutlined, DoubleRightOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
 import InstagramPosts from './InstagramPosts';
 import Header from './Header';
@@ -24,6 +24,10 @@ const { Content } = Layout;
 const { Title, Text } = Typography;
 const { Search } = Input;
 
+// NOTE: this needs to match the media query for making watch trailer and steam
+// widget section responsive in the css file
+const smallScreenMediaQuery = "screen and (min-width: 320px) and (max-width: 767px)";
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -32,9 +36,15 @@ class Home extends Component {
       openedTrailer: false,
       dummyKey: 0,
       prevCarouselIdx: 0,
-      carouselIdx: 0
+      carouselIdx: 0,
+      isSmallScreen: window.matchMedia(smallScreenMediaQuery).matches
     };
     this.ref = React.createRef();
+  }
+
+  componentDidMount() {
+    const handler = e => this.setState({ isSmallScreen: e.matches });
+    window.matchMedia(smallScreenMediaQuery).addEventListener('change', handler);
   }
 
   openTrailerModal = () => {
@@ -73,7 +83,7 @@ class Home extends Component {
               <Header isHomePage={true} />
               <div className='header'>
                 <Row justify='center'>
-                  <Col span={12}>
+                  <Col span={16}>
                     <div className='home-title'>
                       <img src={ImgWishText} />
                       <img src={ImgUponText} />
@@ -82,10 +92,17 @@ class Home extends Component {
                     </div>
                   </Col>
                 </Row>
-                <Row className='trailer-row' justify='end'>
-                  <Col span={10}>
+                <Row className='trailer-row'>
+                  {/* Increase the value of this during small screen size */}
+                  <Col span={this.state.isSmallScreen ? 24 : 10}>
                     <div className='trailer-container'>
-                      <Button type="primary" icon={<VideoCameraOutlined />} size='large' onClick={this.openTrailerModal}>WATCH TRAILER</Button>
+                      <div className="watch-trailer-button-container">
+                        <Button className="watch-trailer-button-modal" type="primary" icon={<VideoCameraOutlined />} size='large' onClick={this.openTrailerModal}>WATCH TRAILER</Button>
+                        <Button className="watch-trailer-button-nonmodal" type="primary" icon={<VideoCameraOutlined />} size='large' href='https://www.youtube.com/watch?v=lIOdPxltO4s&t=6s&ab_channel=WishUponALlama' target='_blank'>WATCH TRAILER</Button>
+                      </div>
+                      <div className='wishlist-button-container'>
+                        <Button type="primary" icon={<ArrowRightOutlined />} size='large' href="https://store.steampowered.com/app/2262630/Wish_Upon_A_Llamad" target="_blank">WISHLIST ON STEAM</Button>
+                      </div>
                       {/* TODO: make this responsive!! */}
                       {/* Setting width = 911, height = 512px is the perfect dimensions such that there's no black space around the youtube video */}
                       <Modal width={911} wrapClassName="trailer-modal" centered={true} open={this.state.isTrailerModalOpen} footer={null} closeIcon={null} onCancel={this.closeTrailerModal}>
@@ -103,7 +120,7 @@ class Home extends Component {
                       <iframe className="steam-widget" src="https://store.steampowered.com/widget/2262630/?t=Welcome%20to%20Wish%20Upon%20A%20Llama%2C%20an%20immersive%20open-ended%20RPG%20where%20you%20embark%20on%20a%20delightful%20journey%20of%20raising%20and%20breeding%20adorable%20animals%20such%20as%20llamas%2C%20bunnies%2C%20capybaras%2C%20and%20sheep%20while%20building%20meaningful%20relationships%20with%20the%20townsfolk!%20"></iframe>
                     </div>
                   </Col>
-                  <Col span={3} />
+                  <Col className="trailer-row-padding" span={3} />
                 </Row>
               </div>
               <div className='scroll-down-container'>
